@@ -1,8 +1,10 @@
 ﻿using Catalog.API.Entities;
 using Catalog.API.Repositories.Interfaces;
+
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,16 +19,13 @@ namespace Catalog.API.Controllers
 	{
 		//create repository object by getting it from the constructor via dependency injection (registered in startup.cs
 		private readonly IProductRepository _repository;
+
 		private readonly ILogger<CatalogController> _logger;
 
-		public CatalogController(IProductRepository repository, ILogger<CatalogController> logger) : this(repository)
-		{
-			_logger = logger ?? throw new ArgumentNullException(nameof(logger));
-		}
-
-		public CatalogController(IProductRepository repository)
+		public CatalogController(IProductRepository repository, ILogger<CatalogController> logger)
 		{
 			_repository = repository ?? throw new ArgumentNullException(nameof(repository));
+			_logger = logger ?? throw new ArgumentNullException(nameof(logger));
 		}
 
 		[HttpGet] //returning action result and so return status
@@ -35,9 +34,8 @@ namespace Catalog.API.Controllers
 		{
 			var products = await _repository.GetProducts();
 			//Ok = 200 result
-			return Ok(products); 
+			return Ok(products);
 		}
-
 
 		[HttpGet("{id:length(24)}", Name = "GetProduct")] //returning action result and so return status or msg
 		[ProducesResponseType((int)HttpStatusCode.NotFound)]
@@ -57,9 +55,9 @@ namespace Catalog.API.Controllers
 		[Route("[action]/{category}")]
 		[HttpGet] //returning action result and so return status
 		[ProducesResponseType(typeof(IEnumerable<Product>), (int)HttpStatusCode.OK)]
-		public async Task<ActionResult<IEnumerable<Product>>> GetProductByCategory(string categoryName)
+		public async Task<ActionResult<IEnumerable<Product>>> GetProductByCategory(string category)
 		{
-			var products = await _repository.GetProductByCategory(categoryName);
+			var products = await _repository.GetProductByCategory(category);
 			//Ok = 200 result
 			return Ok(products);
 		}
@@ -69,9 +67,9 @@ namespace Catalog.API.Controllers
 		public async Task<ActionResult<Product>> CreateProduct([FromBody] Product product) //expecting prod creation details from body, in JSON format.
 		{
 			await _repository.Create(product);
-			
+
 			//after creating item, retrieve id w/ GetProduct routing method (see above annotation)
-			return CreatedAtRoute("GetProduct", new { id = product.Id	}, product);
+			return CreatedAtRoute("GetProduct", new { id = product.Id }, product);
 		}
 
 		[HttpPut] //actionresult (return status, but no object this time)
@@ -81,10 +79,9 @@ namespace Catalog.API.Controllers
 			return Ok(await _repository.Update(product));
 		}
 
-
 		[HttpDelete("{id:length(24)}")] //actionresult (return status, but no object this time)
 		[ProducesResponseType(typeof(Product), (int)HttpStatusCode.OK)]
-		public async Task<ActionResult> DeleteProductById(string id) 
+		public async Task<ActionResult> DeleteProductById(string id)
 		{
 			return Ok(await _repository.Delete(id));
 		}
