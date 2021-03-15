@@ -39,7 +39,7 @@ namespace Catalog.API.Controllers
 		}
 
 
-		[HttpGet] //returning action result and so return status or msg
+		[HttpGet("{id:length(24)}", Name = "GetProduct")] //returning action result and so return status or msg
 		[ProducesResponseType((int)HttpStatusCode.NotFound)]
 		[ProducesResponseType(typeof(Product), (int)HttpStatusCode.OK)]
 		public async Task<ActionResult<Product>> GetProductById(string id) //mongo stores as object w/ string id type (not int).
@@ -70,8 +70,23 @@ namespace Catalog.API.Controllers
 		{
 			await _repository.Create(product);
 			
-			//response
+			//after creating item, retrieve id w/ GetProduct routing method (see above annotation)
 			return CreatedAtRoute("GetProduct", new { id = product.Id	}, product);
+		}
+
+		[HttpPut] //actionresult (return status, but no object this time)
+		[ProducesResponseType(typeof(Product), (int)HttpStatusCode.OK)]
+		public async Task<ActionResult> UpdateProduct([FromBody] Product product) //actionresult not returning <Product> this method.
+		{
+			return Ok(await _repository.Update(product));
+		}
+
+
+		[HttpDelete("{id:length(24)}")] //actionresult (return status, but no object this time)
+		[ProducesResponseType(typeof(Product), (int)HttpStatusCode.OK)]
+		public async Task<ActionResult> DeleteProductById(string id) 
+		{
+			return Ok(await _repository.Delete(id));
 		}
 	}
 }
