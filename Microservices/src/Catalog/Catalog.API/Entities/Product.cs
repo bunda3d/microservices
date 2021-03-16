@@ -12,7 +12,7 @@ namespace Catalog.API.Entities
 		[BsonRepresentation(MongoDB.Bson.BsonType.ObjectId)]
 		public string Id { get; set; }
 
-		//[BsonElement("Name")]
+		//[BsonElement("Name")] //could have different mongo "column" names
 		public string Name { get; set; }
 		public string Category { get; set; }
 		public string Summary { get; set; }

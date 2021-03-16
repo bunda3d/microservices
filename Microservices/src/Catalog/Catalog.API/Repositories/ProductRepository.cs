@@ -47,15 +47,20 @@ namespace Catalog.API.Repositories
 				.ToListAsync();
 		}
 
-		public async Task<IEnumerable<Product>> GetProductByCategory(string category)
+		public async Task<IEnumerable<Product>> GetProductByCategory(string categoryName)
 		{
-			// Mongo function
-			FilterDefinition<Product> filter = Builders<Product>.Filter.ElemMatch(p => p.Category, category);
+			FilterDefinition<Product> filter = Builders<Product>.Filter.Eq(p => p.Category, categoryName);
 
 			return await _context
 				.Products
 				.Find(filter)
 				.ToListAsync();
+
+			// ripping out the above FilterDefinition/etc. and just including this .Find statement also works, if needed. 
+			//return await _context
+			//	.Products
+			//	.Find(p => p.Category == categoryName)
+			//	.ToListAsync();
 		}
 
 		public async Task Create(Product product)

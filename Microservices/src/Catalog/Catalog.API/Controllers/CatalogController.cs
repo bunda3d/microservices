@@ -47,12 +47,13 @@ namespace Catalog.API.Controllers
 			{
 				_logger.LogError($"Product with id: {id} not found.");
 				return NotFound();
+				//return NotFound($"Product with id: {id} not found.");
 			}
 			//Ok = 200 result
 			return Ok(product);
 		}
 
-		[Route("[action]/{category}")]
+		[Route("[action]/{category}", Name = "GetProductByCategory")]
 		[HttpGet] //returning action result and so return status
 		[ProducesResponseType(typeof(IEnumerable<Product>), (int)HttpStatusCode.OK)]
 		public async Task<ActionResult<IEnumerable<Product>>> GetProductByCategory(string category)

@@ -15,7 +15,7 @@ namespace Catalog.API.Repositories.Interfaces
 
 		Task<IEnumerable<Product>> GetProductByName(string name);
 
-		Task<IEnumerable<Product>> GetProductByCategory(string category);
+		Task<IEnumerable<Product>> GetProductByCategory(string categoryName);
 
 		Task Create(Product product);
 
