@@ -1,3 +1,7 @@
+docker composer
+docker-compose -f docker-compose.yml -f docker-compose.override.yml up -d
+
+***
 docker pull mongo
 docker run -d -p 27017:27017 --name aspnetrun-mongo mongo
 docker logs -f aspnetrun-mongo

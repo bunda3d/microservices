@@ -9,6 +9,5 @@ services:
     build:
       context: .
       dockerfile: src/Catalog/Catalog.API/Dockerfile
-
 volumes:
   mongo_data:
