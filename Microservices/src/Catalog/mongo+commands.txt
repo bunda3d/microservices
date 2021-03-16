@@ -51,6 +51,13 @@ db.Products.find({}).pretty()
   "Price" : 88.93
 }
 
+/**
+https://ropenscilabs.github.io/r-docker-tutorial/04-Dockerhub.html
+bunda3d/microservices-ecom
+docker tag bbfd3e575f12 bunda3d/microservices-ecom:latest
+docker push bunda3d/microservices-ecom
+*/
+
 
 --> For seeding:
 new Product()
