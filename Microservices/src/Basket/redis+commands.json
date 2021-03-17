@@ -23,6 +23,13 @@ set name kris
 get name
 // "kris"
 
+// IF HAVING DOCKER DESKTOP TROUBLE
+// Check WSL linux distro version and status
+wsl -l -v
+// if distro in Stopped STATE try typing 'wsl' into powershell to start into default linux distro shell
+wsl
+
+
 // DOCKER RUN FILE - STOPPING ALL CURRENTLY RUNNING CONTAINERS FIRST
 docker ps
 // docker stop {first couple chars of CONTAINER ID} examples:
