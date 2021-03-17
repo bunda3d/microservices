@@ -22,3 +22,15 @@ set name kris
 //OK
 get name
 // "kris"
+
+// DOCKER RUN FILE - STOPPING ALL CURRENTLY RUNNING CONTAINERS FIRST
+docker ps
+// docker stop {first couple chars of CONTAINER ID} examples:
+docker stop 1d
+docker stop 66
+docker stop 6f
+// all closed...check docker ps to be sure
+docker ps
+// go to docker-compose file location (where visual studio has it)
+// click in the address bar of file explorer, type "CMD"
+docker-compose -f docker-compose.yml -f docker-compose.override.yml up -d
