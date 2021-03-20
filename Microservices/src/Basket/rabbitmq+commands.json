@@ -1,8 +1,0 @@
-//check docker status
-docker ps
-docker images
-// new rabbit mq with management and operations ports declared
-docker run -d --hostname my-rabbit --name some-rabbit -p 15672:15672 -p 5672:5672 rabbitmq:3-management
-// check docker statuses again, then check localhost:15672 in browser
-localhost:15672
-// initial pw+log = guest and guest
