@@ -1,10 +1,22 @@
 //check docker status
 docker ps
 docker images
-// new rabbit mq with management and operations ports declared
-docker run -d --hostname my-rabbit --name some-rabbit -p 15672:15672 -p 5672:5672 rabbitmq:3-management
-// check docker statuses again, then check localhost:15672 in browser
-localhost:15672
+// SQL Server container
+docker run -e 'ACCEPT_EULA=Y' -e 'SA_PASSWORD=Pwd!4321' -p 1433:1433 -d mcr.microsoft.com/mssql/server
+// because of warning on single quotes
+docker run -e "ACCEPT_EULA=Y" -e "SA_PASSWORD=Pwd!4321" -p 1433:1433 -d mcr.microsoft.com/mssql/server
+// docker ps -a to get sql server container id
+9b18252ba769 
+// server container not running initially. 
+// trying some things from MS Docs site: 
+// https://docs.microsoft.com/en-us/sql/linux/sql-server-linux-docker-container-deployment?view=sql-server-2017&pivots=cs1-cmd#pull-and-run-the-container-image
+// like this bash script I will run in the Docker app:
+docker exec -it 9b18252ba769 "bash"
+// Connect via CMD
+sqlcmd -S 192.168.65.0/28 -U SA -P "Pwd!4321"
+sqlcmd -S 192.168.65.0 -U SA -P "Pwd!4321"
+sqlcmd -S 192.168.65.0,1433 -U SA -P "Pwd!4321"
+localhost:1433
 // initial pw+log = guest and guest
 
 
