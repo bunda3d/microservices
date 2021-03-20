@@ -37,9 +37,10 @@ namespace EventBusRabbitMQ.Producer
 				properties.Persistent = true;
 				properties.DeliveryMode = 2;
 
+				// https://rabbitmq.com/tutorials/amqp-concepts.html
 				channel.ConfirmSelect();
 				channel.BasicPublish(
-					exchange: "",
+					exchange: "", // Direct exchg (empty str == amq.direct)
 					routingKey: queueName, 
 					mandatory: true,
 					basicProperties: properties,
@@ -49,7 +50,7 @@ namespace EventBusRabbitMQ.Producer
 
 				channel.BasicAcks += (sender, EventArgs) =>
 				{
-					Console.WriteLine("Sent RabbitMQ");
+					Console.WriteLine("Sent msg acknowledge to RabbitMQ");
 					//implement ack handle
 				};
 				channel.ConfirmSelect();

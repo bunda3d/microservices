@@ -11,7 +11,7 @@ using EventBusRabbitMQ.Common;
 
 namespace Basket.API.Controllers
 {
-	[Route("api/vi/[controller]")]
+	[Route("api/v1/[controller]")]
 	[ApiController]
 	public class BasketController : ControllerBase
 	{
