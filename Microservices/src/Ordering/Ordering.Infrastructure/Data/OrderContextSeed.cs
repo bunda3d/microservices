@@ -4,7 +4,6 @@ using Ordering.Core.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace Ordering.Infrastructure.Data
@@ -35,6 +34,7 @@ namespace Ordering.Infrastructure.Data
 					retryForAvailability++;
 					var log = loggerFactory.CreateLogger<OrderContextSeed>();
 					log.LogError(exception.Message);
+					System.Threading.Thread.Sleep(2000);
 					await SeedAsync(orderContext, loggerFactory, retryForAvailability);
 				}
 			}
