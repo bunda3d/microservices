@@ -21,23 +21,23 @@ localhost:1433
 
 
 // Swagger / Postman test inputs
-// POST: add cart
-{
+// POST: add basket / cart
+{  
   "userName": "YoBroMexico",
   "items": [
     {
-      "quantity": 4,
       "color": "Nacho Cheese",
       "price": 50,
       "productId": "999",
-      "productName": "Hello Kitty Inedible Cheeze Spread"
+      "productName": "Hello Kitty Inedible Cheeze Spread",
+      "quantity": 4
     },
     {
-      "quantity": 1,
       "color": "Stankonia",
       "price": 10,
       "productId": "1234567",
-      "productName": "Hello Dolly Fremium Dreamium"
+      "productName": "Hello Dolly Freemium Dreamium",
+      "quantity": 1
     }
   ]
 }
@@ -60,6 +60,37 @@ localhost:1433
   "userName": "YoBroMexico",
   "zipCode": "12345"
 }
+{
+  "userName": "YoBroMexico",
+  "totalPrice": 210,
+  "firstName": "",
+  "lastName": "",
+  "emailAddress": "",
+  "addressLine": "",
+  "country": "",
+  "zipCode": "55555",
+  "cardName": "Visa",
+  "cardNumber": "1111222244443333",
+  "expiration": "0424",
+  "cvv": "777",
+  "paymentMethod": 1
+}
+{
+  "userName": "string",
+  "totalPrice": 0,
+  "firstName": "string",
+  "lastName": "string",
+  "emailAddress": "string",
+  "addressLine": "string",
+  "country": "string",
+  "zipCode": "string",
+  "cardName": "string",
+  "cardNumber": "string",
+  "expiration": "string",
+  "cvv": "string",
+  "paymentMethod": 0
+}
+
 
 
 //Docker image cmd
@@ -96,6 +127,6 @@ docker-compose -f docker-compose.yml -f docker-compose.override.yml up -d
 // WARNING: Image for service basket.api was built because it did not already exist. To rebuild this image you must use `docker-compose build` or `docker-compose up --build`.
 // ***
 // so... this?
-docker-compose build -f docker-compose.yml -f docker-compose.override.yml up -d
+docker-compose -f docker-compose.yml -f docker-compose.override.yml up --build
 // or this?
 docker-compose up --build -f docker-compose.yml -f docker-compose.override.yml up -d

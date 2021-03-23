@@ -16,6 +16,7 @@
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       },
+      "sqlDebugging": false,
       "applicationUrl": "http://localhost:5001"
     },
     "Basket.API": {
