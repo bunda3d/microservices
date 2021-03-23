@@ -21,7 +21,14 @@ namespace Ordering.Core.Entities
 		public string CardNumber { get; set; }
 		public string Expiration { get; set; }
 		public string CVV { get; set; }
-		public int PaymentMethod { get; set; }
+		public PaymentMethod PaymentMethod { get; set; }
 
+	}
+
+	public enum PaymentMethod
+	{
+		CreditCard = 1,
+		DebitCard = 2,
+		Paypal = 3
 	}
 }

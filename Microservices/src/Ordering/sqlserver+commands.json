@@ -76,19 +76,20 @@ localhost:1433
   "paymentMethod": 1
 }
 {
-  "userName": "string",
-  "totalPrice": 0,
-  "firstName": "string",
-  "lastName": "string",
-  "emailAddress": "string",
   "addressLine": "string",
-  "country": "string",
-  "zipCode": "string",
-  "cardName": "string",
+  "cardName": "Visa",
   "cardNumber": "string",
+  "country": "USA",
+  "cvv": "999",
+  "emailAddress": "who@wha.when",
   "expiration": "string",
-  "cvv": "string",
-  "paymentMethod": 0
+  "firstName": "Yo",
+  "id": 0,
+  "lastName": "Mexico",
+  "paymentMethod": 1,
+  "totalPrice": 211,
+  "userName": "yolo",
+  "zipCode": "55555"
 }
 
 
@@ -128,5 +129,3 @@ docker-compose -f docker-compose.yml -f docker-compose.override.yml up -d
 // ***
 // so... this?
 docker-compose -f docker-compose.yml -f docker-compose.override.yml up --build
-// or this?
-docker-compose up --build -f docker-compose.yml -f docker-compose.override.yml up -d

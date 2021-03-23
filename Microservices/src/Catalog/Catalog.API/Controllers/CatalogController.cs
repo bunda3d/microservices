@@ -1,20 +1,17 @@
 ﻿using Catalog.API.Entities;
 using Catalog.API.Repositories.Interfaces;
-
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
 
 namespace Catalog.API.Controllers
-{
-	[Route("api/v1/[controller]")]
+{	
 	[ApiController]
+	[Route("api/v1/[controller]")]
 	public class CatalogController : ControllerBase
 	{
 		//create repository object by getting it from the constructor via dependency injection (registered in startup.cs

@@ -19,6 +19,7 @@ namespace Ordering.API.RabbitMQ
 		private readonly IMediator _mediator;
 		private readonly IMapper _mapper;
 		private readonly IOrderRepository _repository;
+		// we added this in order to resolve in mediatR
 
 		// constructor for microservices consumer, registers in startup
 		public EventBusRabbitMQConsumer(
@@ -37,7 +38,7 @@ namespace Ordering.API.RabbitMQ
 		// create rabbitmq queue for cart
 		public void Consume()
 		{
-			var channel = _connection.CreateModel(); 
+			var channel = _connection.CreateModel();
 			channel.QueueDeclare(
 				queue: EventBusConstants.BasketCheckoutQueue,
 				durable: false,
@@ -50,7 +51,8 @@ namespace Ordering.API.RabbitMQ
 
 			consumer.Received += ReceivedEvent;
 
-			channel.BasicConsume(queue: EventBusConstants.BasketCheckoutQueue, 
+			channel.BasicConsume(
+				queue: EventBusConstants.BasketCheckoutQueue, 
 				autoAck: true, 
 				consumer: consumer,
 				noLocal: false,

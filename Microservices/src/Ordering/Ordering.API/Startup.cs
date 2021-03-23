@@ -86,9 +86,7 @@ namespace Ordering.API
 				app.UseSwagger();
 				app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Ordering API v1"));
 			}
-			
-			app.UseRabbitListener();
-			
+						
 			app.UseRouting();
 
 			app.UseAuthorization();
@@ -98,7 +96,7 @@ namespace Ordering.API
 				endpoints.MapControllers();
 			});
 
-			
+			app.UseRabbitListener();
 		}
 	}
 }

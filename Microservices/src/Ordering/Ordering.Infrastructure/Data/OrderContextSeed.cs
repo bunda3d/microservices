@@ -29,7 +29,7 @@ namespace Ordering.Infrastructure.Data
 			}
 			catch (Exception exception)
 			{
-				if (retryForAvailability < 3)
+				if (retryForAvailability < 15)
 				{
 					retryForAvailability++;
 					var log = loggerFactory.CreateLogger<OrderContextSeed>();
@@ -37,11 +37,12 @@ namespace Ordering.Infrastructure.Data
 					System.Threading.Thread.Sleep(2000);
 					await SeedAsync(orderContext, loggerFactory, retryForAvailability);
 				}
+				throw;
 			}
 		}
 		private static IEnumerable<Order> GetPreconfiguredOrders()
 		{
-			return new List<Order>
+			return new List<Order>()
 			{
 				new Order()
 				{
@@ -50,7 +51,18 @@ namespace Ordering.Infrastructure.Data
 					LastName = "Lo",
 					EmailAddress = "dingdong@thewitchis.dead",
 					AddressLine = "101 Dark Alley",
-					Country = "US"
+					Country = "US",
+					TotalPrice = 544
+				},
+				new Order()
+				{
+					UserName = "YoBroMexico",
+					FirstName = "Yo",
+					LastName = "BroMexico",
+					EmailAddress = "dingdong@diddly.iddly",
+					AddressLine = "120 Evergreen Terrace",
+					Country = "US",
+					TotalPrice = 28
 				}
 			};
 		}
