@@ -2,8 +2,11 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+
 using Ordering.Infrastructure.Data;
+
 using System;
+using System.Threading.Tasks;
 
 namespace Ordering.API
 {
@@ -34,7 +37,7 @@ namespace Ordering.API
 				try
 				{
 					var orderContext = services.GetRequiredService<OrderContext>();
-					OrderContextSeed.SeedAsync(orderContext, loggerFactory);
+					Task task = OrderContextSeed.SeedAsync(orderContext, loggerFactory);
 				}
 				catch (Exception exception)
 				{

@@ -122,10 +122,5 @@ docker rmi 1a
 // recent changes... and that's ok, can build 
 // containers again and will only build what's needed
 docker-compose -f docker-compose.yml -f docker-compose.override.yml up -d
-// docker build said this, so maybe should use 
-// build cmd in future, not delete containers...?
-// ***
 // WARNING: Image for service basket.api was built because it did not already exist. To rebuild this image you must use `docker-compose build` or `docker-compose up --build`.
-// ***
-// so... this?
 docker-compose -f docker-compose.yml -f docker-compose.override.yml up --build
