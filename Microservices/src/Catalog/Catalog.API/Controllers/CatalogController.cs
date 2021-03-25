@@ -10,8 +10,9 @@ using System.Threading.Tasks;
 
 namespace Catalog.API.Controllers
 {	
+
+	[Route("api/v1/[controller]")]	
 	[ApiController]
-	[Route("api/v1/[controller]")]
 	public class CatalogController : ControllerBase
 	{
 		//create repository object by getting it from the constructor via dependency injection (registered in startup.cs

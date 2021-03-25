@@ -52,6 +52,8 @@ namespace Ordering.Infrastructure.Data
 					EmailAddress = "dingdong@thewitchis.dead",
 					AddressLine = "101 Dark Alley",
 					Country = "US",
+					State = "NY",
+					City = "New York City",
 					TotalPrice = 544
 				},
 				new Order()
@@ -62,6 +64,8 @@ namespace Ordering.Infrastructure.Data
 					EmailAddress = "dingdong@diddly.iddly",
 					AddressLine = "120 Evergreen Terrace",
 					Country = "US",
+					State = "California",
+					City = "Los Angeles",
 					TotalPrice = 28
 				}
 			};

@@ -63,11 +63,11 @@ localhost:1433
 {
   "userName": "YoBroMexico",
   "totalPrice": 210,
-  "firstName": "",
-  "lastName": "",
-  "emailAddress": "",
-  "addressLine": "",
-  "country": "",
+  "firstName": "Yo",
+  "lastName": "BroMexico",
+  "emailAddress": "dingdong@diddly.iddly",
+  "addressLine": "120 Evergreen Terrace",
+  "country": "USA",
   "zipCode": "55555",
   "cardName": "Visa",
   "cardNumber": "1111222244443333",
@@ -79,20 +79,20 @@ localhost:1433
   "addressLine": "string",
   "cardName": "Visa",
   "cardNumber": "string",
+  "city": "New York City",
   "country": "USA",
   "cvv": "999",
   "emailAddress": "who@wha.when",
   "expiration": "string",
   "firstName": "Yo",
-  "id": 0,
+  "id": 1,
   "lastName": "Mexico",
   "paymentMethod": 1,
+  "state": "NY",
   "totalPrice": 211,
   "userName": "yolo",
   "zipCode": "55555"
 }
-
-
 
 //Docker image cmd
 docker ps --format "table {{.ID}}\t{{.Image}}\t{{.Command}}\t{{.Ports}}"

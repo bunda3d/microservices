@@ -31,7 +31,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ordering.Application", "src
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ApiGateway", "ApiGateway", "{DE0C13B2-3406-4517-ADF5-FA4417F6E544}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "APIGateway", "src\ApiGateway\APIGateway\APIGateway.csproj", "{E18A76E5-D504-449A-B5C4-EDDE9DA3E632}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "APIGateway", "src\ApiGateway\APIGateway\APIGateway.csproj", "{E18A76E5-D504-449A-B5C4-EDDE9DA3E632}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
