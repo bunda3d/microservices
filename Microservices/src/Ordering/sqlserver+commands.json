@@ -42,23 +42,65 @@ localhost:1433
   ]
 }
 
+{  
+  "userName": "Yoyo",
+  "items": [
+    {
+      "color": "Gray Area",
+      "price": 11,
+      "productId": "210",
+      "productName": "Squeeze Cheeze",
+      "quantity": 3
+    },
+    {
+      "color": "Old Yeller",
+      "price": 19,
+      "productId": "123",
+      "productName": "Dog Bone",
+      "quantity": 3
+    }
+  ]
+}
+
+{  
+  "userName": "Yolo",
+  "items": [
+    {
+      "color": "Brittney Spears",
+      "price": 34,
+      "productId": "2",
+      "productName": "Pickle Spears",
+      "quantity": 10
+    },
+    {
+      "color": "Shiny",
+      "price": 16,
+      "productId": "3",
+      "productName": "Fondue Forks",
+      "quantity": 10
+    }
+  ]
+}
+
 // POST: checkout
 
 // more details
 {
+  "userName": "Yoyo",
   "addressLine": "124 three street",
   "cardName": "Visa",
   "cardNumber": "1234567891011121",
   "country": "This Land is Our Land",
+  "city": "Atlanta",
+  "state": "GA",
   "cvv": "123",
   "emailAddress": "dingdong@thewitchis.dead",
   "expiration": "0224",
-  "firstName": "Yo",
-  "lastName": "Mexico",
-  "paymentMethod": 1,
-  "totalPrice": 210,
-  "userName": "YoBroMexico",
-  "zipCode": "12345"
+  "firstName": "Yoyo",
+  "lastName": "Yolanda",
+  "paymentMethod": 3,
+  "totalPrice": 255,
+  "zipCode": "45678"
 }
 {
   "userName": "YoBroMexico",
@@ -68,6 +110,8 @@ localhost:1433
   "emailAddress": "dingdong@diddly.iddly",
   "addressLine": "120 Evergreen Terrace",
   "country": "USA",
+  "state": "CA",
+  "city": "Los Angeles",
   "zipCode": "55555",
   "cardName": "Visa",
   "cardNumber": "1111222244443333",
@@ -76,23 +120,23 @@ localhost:1433
   "paymentMethod": 1
 }
 {
-  "addressLine": "string",
-  "cardName": "Visa",
-  "cardNumber": "string",
-  "city": "New York City",
-  "country": "USA",
-  "cvv": "999",
-  "emailAddress": "who@wha.when",
-  "expiration": "string",
-  "firstName": "Yo",
-  "id": 1,
-  "lastName": "Mexico",
-  "paymentMethod": 1,
-  "state": "NY",
+  "userName": "Yolo",
   "totalPrice": 211,
-  "userName": "yolo",
-  "zipCode": "55555"
+  "firstName": "Yo",
+  "lastName": "Lo",
+  "emailAddress": "who@wha.when",
+  "addressLine": "4321 Main St",
+  "country": "USA",
+  "state": "NY",
+  "city": "New York City",
+  "zipCode": "12345",
+  "cardName": "Visa",
+  "cardNumber": "9999888877776666",
+  "expiration": "1224",
+  "cvv": "987",
+  "paymentMethod": 2
 }
+
 
 //Docker image cmd
 docker ps --format "table {{.ID}}\t{{.Image}}\t{{.Command}}\t{{.Ports}}"

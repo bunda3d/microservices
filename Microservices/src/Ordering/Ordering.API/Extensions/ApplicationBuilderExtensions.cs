@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+
 using Ordering.API.RabbitMQ;
 
 namespace Ordering.API.Extensions
@@ -8,15 +9,14 @@ namespace Ordering.API.Extensions
 	public static class ApplicationBuilderExtensions
 	{
 		public static EventBusRabbitMQConsumer Listener { get; set; }
+
 		public static IApplicationBuilder UseRabbitListener(this IApplicationBuilder app)
 		{
-
 			Listener = app.ApplicationServices.GetService<EventBusRabbitMQConsumer>();
 			var life = app.ApplicationServices.GetService<IHostApplicationLifetime>();
 
 			life.ApplicationStarted.Register(OnStarted);
 			life.ApplicationStopping.Register(OnStopping);
-
 
 			return app;
 		}
@@ -28,9 +28,7 @@ namespace Ordering.API.Extensions
 
 		private static void OnStopping()
 		{
-			Listener.Consume();
+			Listener.Disconnect();
 		}
-
-
 	}
 }

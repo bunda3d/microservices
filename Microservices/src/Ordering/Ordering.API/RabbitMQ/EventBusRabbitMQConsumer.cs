@@ -1,13 +1,19 @@
 ﻿using AutoMapper;
+
 using EventBusRabbitMQ;
 using EventBusRabbitMQ.Common;
 using EventBusRabbitMQ.Events;
+
 using MediatR;
+
 using Newtonsoft.Json;
+
 using Ordering.Application.Commands;
 using Ordering.Core.Repositories;
+
 using RabbitMQ.Client;
 using RabbitMQ.Client.Events;
+
 using System;
 using System.Text;
 
@@ -23,9 +29,9 @@ namespace Ordering.API.RabbitMQ
 
 		// constructor for microservices consumer, registers in startup
 		public EventBusRabbitMQConsumer(
-			IRabbitMQConnection connection, 
-			IMediator mediator, 
-			IMapper mapper, 
+			IRabbitMQConnection connection,
+			IMediator mediator,
+			IMapper mapper,
 			IOrderRepository repository
 			)
 		{
@@ -52,8 +58,8 @@ namespace Ordering.API.RabbitMQ
 			consumer.Received += ReceivedEvent;
 
 			channel.BasicConsume(
-				queue: EventBusConstants.BasketCheckoutQueue, 
-				autoAck: true, 
+				queue: EventBusConstants.BasketCheckoutQueue,
+				autoAck: true,
 				consumer: consumer,
 				noLocal: false,
 				exclusive: false,
@@ -78,7 +84,5 @@ namespace Ordering.API.RabbitMQ
 		{
 			_connection.Dispose();
 		}
-			 
-
 	}
 }
