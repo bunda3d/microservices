@@ -1,10 +1,8 @@
-using AspnetRunBasics.ApiCollection.Settings;
-using AspnetRunBasics.Data;
-using AspnetRunBasics.Repositories;
-
+using AspnetRunBasics.ApiCollection;
+using AspnetRunBasics.ApiCollection.Interfaces;
+using AspnetRunBasics.Settings;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -24,12 +22,18 @@ namespace AspnetRunBasics
 		// This method gets called by the runtime. Use this method to add services to the container.
 		public void ConfigureServices(IServiceCollection services)
 		{
-			#region project settings
+			#region project API settings
 
 			services.Configure<ApiSettings>(Configuration.GetSection(nameof(ApiSettings)));
 			services.AddSingleton<IApiSettings>(sp => sp.GetRequiredService<IOptions<ApiSettings>>().Value);
 
-			#endregion project settings
+			services.AddHttpClient();
+
+			services.AddTransient<ICatalogApi, CatalogApi>();
+			services.AddTransient<IBasketApi, BasketApi>();
+			services.AddTransient<IOrderApi, OrderApi>();
+
+			#endregion project API settings
 
 			services.AddRazorPages();
 		}

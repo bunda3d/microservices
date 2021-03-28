@@ -11,8 +11,8 @@ namespace AspnetRunBasics.Models
 		public decimal TotalPrice { get; set; }
 
 		//Billing Address
-		public string FirstName { get; set; }
 
+		public string FirstName { get; set; }
 		public string LastName { get; set; }
 		public string EmailAddress { get; set; }
 		public string AddressLine { get; set; }
@@ -22,8 +22,8 @@ namespace AspnetRunBasics.Models
 		public string ZipCode { get; set; }
 
 		//Payment
-		public string CardName { get; set; }
 
+		public string CardName { get; set; }
 		public string CardNumber { get; set; }
 		public string Expiration { get; set; }
 		public string CVV { get; set; }

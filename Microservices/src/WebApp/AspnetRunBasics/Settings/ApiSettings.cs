@@ -1,4 +1,4 @@
-﻿namespace AspnetRunBasics.ApiCollection.Settings
+﻿namespace AspnetRunBasics.Settings
 {
 	public class ApiSettings : IApiSettings
 	{
