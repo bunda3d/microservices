@@ -94,7 +94,7 @@ services:
 
 
   aspnetrunbasics:
-    container_name: frontend
+    container_name: aspnetrunbasics
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
       - "ApiSettings:BaseAddress=apigateway"
