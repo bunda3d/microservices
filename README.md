@@ -8,7 +8,10 @@ ASP.NET Core 5.0, RabbitMQ, SQL Server, MongoDb, Redis, Docker, Docker Compose f
 Using "Clean" (N-Layer) architecture, SOLID principles, Domain Driven Design (DDD), CQRS (Command Query Responsibility Segregation), etc.
 
 ### Since the author changed this course significantly...
-I'm copying the part of his readme here that instructs how to download and install all the docker containers. Otherwise he plans to remove this "old" part of the course in the next 2 weeks. 
+I'm copying the part of his readme here that instructs how to download and install all the docker containers. Otherwise he plans to remove this "old" part of the course in the next 2 weeks (of 2021.03.30). 
+
+* [Mehmet Özkaya of aspnetrun](https://github.com/aspnetrun/run-aspnetcore-microservices)
+
 
 ## Run The Project
 You will need the following tools:
