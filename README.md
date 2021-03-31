@@ -66,7 +66,8 @@ docker run -e "ACCEPT_EULA=Y" -e "SA_PASSWORD=Pwd!4321" -p 1433:1433 -d mcr.micr
 ![sql-server-docker-login](Microservices/src/WebApp/AspnetRunBasics/wwwroot/images/sql-server-docker-login.png)
 
 
-## Launch http://localhost:8003/ in your browser to view the Web UI. You can use Web project in order to **call microservices over API Gateway**. When you **checkout the basket** you can follow **queue record on RabbitMQ dashboard**.
+## Launch http://localhost:8003/ in your browser to view the Web UI. 
+You can use Web project in order to **call microservices over API Gateway**. When you **checkout the basket** you can follow **queue record on RabbitMQ dashboard**.
 
 ![mainscreen](Microservices/src/WebApp/AspnetRunBasics/wwwroot/images/frontend.png)
 
