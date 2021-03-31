@@ -35,8 +35,9 @@ After entering command, watch the Docker build.
 
 ![docker-compose-build](Microservices/src/WebApp/AspnetRunBasics/wwwroot/images/docker-composer-build.png)
 
-
 3. Wait for docker to compose all microservices. That’s it!
+
+![docker-done-building](Microservices/src/WebApp/AspnetRunBasics/wwwroot/images/docker-done-building.png)
 
 Your containers may look like this: 
 
