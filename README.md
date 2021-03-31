@@ -47,7 +47,7 @@ Your images may look like this:
 ![docker-compose-build](Microservices/src/WebApp/AspnetRunBasics/wwwroot/images/docker-images.png)
 
 
-1. You can **launch microservices** as below urls:
+## You can **launch microservices** as below urls:
 * **RabbitMQ -> http://localhost:15672/** (both user & pw = "guest")
 * **Catalog API -> http://localhost:8000/swagger/index.html**
 * **Basket API -> http://localhost:8001/swagger/index.html**
@@ -55,17 +55,18 @@ Your images may look like this:
 * **API Gateway -> http://localhost:7000/Order?username=Yolo**
 * **Web UI -> http://localhost:8003/**
 
+### SQL Server Container
 If you need a login to the SQL Server container, try this: ( server on localhost, user: SA pw: Pwd!4321 ).
 If all else fails, try running this in CMD prompt: 
 ```csharp
 docker run -e "ACCEPT_EULA=Y" -e "SA_PASSWORD=Pwd!4321" -p 1433:1433 -d mcr.microsoft.com/mssql/server
 ```
-Logging into SSMS may look like this: 
+#### Logging into SSMS may look like this: 
 
 ![sql-server-docker-login](Microservices/src/WebApp/AspnetRunBasics/wwwroot/images/sql-server-docker-login.png)
 
 
-2. Launch http://localhost:8003/ in your browser to view the Web UI. You can use Web project in order to **call microservices over API Gateway**. When you **checkout the basket** you can follow **queue record on RabbitMQ dashboard**.
+## Launch http://localhost:8003/ in your browser to view the Web UI. You can use Web project in order to **call microservices over API Gateway**. When you **checkout the basket** you can follow **queue record on RabbitMQ dashboard**.
 
 ![mainscreen](Microservices/src/WebApp/AspnetRunBasics/wwwroot/images/frontend.png)
 
