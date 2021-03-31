@@ -2,7 +2,6 @@
 using MongoDB.Driver;
 using System.Collections.Generic;
 using System.Linq;
-using static System.Net.WebRequestMethods;
 
 namespace Catalog.API.Data
 {
@@ -255,7 +254,7 @@ namespace Catalog.API.Data
 					Price = 699,
 					Category = "et"
 				}
-		};
+			};
 		}
 	}
 }

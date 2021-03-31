@@ -198,5 +198,7 @@ ports:
 https://loremflickr.com/720/640/boat,ocean
 https://loremflickr.com/720/640/phone,pixel/all
 https://loremflickr.com/1080/720/lamborghini
+// removed this from product page imgs
+.Replace('-','x')
 
 
