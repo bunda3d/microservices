@@ -25,6 +25,8 @@ Follow these steps to get your development environment set up: (Before Run Start
 ```csharp
 docker-compose -f docker-compose.yml -f docker-compose.override.yml up --build
 ```
+(^^^ tip: go to that directory in Windows Explorer, click into the address bar, type "CMD" and hit Enter; this will open a CMD Prompt in the appropriate directory)
+
 3. Wait for docker to compose all microservices. That’s it!
 
 4. You can **launch microservices** as below urls:
