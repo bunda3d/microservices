@@ -42,7 +42,7 @@ services:
       dockerfile: src/ApiGateway/APIGateway/Dockerfile
 
 
-  aspnetrunbasics:
+  frontend:
     image: ${DOCKER_REGISTRY-}aspnetrunbasics
     build:
       context: .

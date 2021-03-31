@@ -168,6 +168,33 @@ docker rmi 1a
 docker-compose -f docker-compose.yml -f docker-compose.override.yml up -d
 // WARNING: Image for service basket.api was built because it did not already exist. To rebuild this image you must use `docker-compose build` or `docker-compose up --build`.
 docker-compose -f docker-compose.yml -f docker-compose.override.yml up --build
+// setting up https endpoint for docker
+dotnet dev-certs https -ep %USERPROFILE%\.aspnet\https\aspnetapp.pfx -p Pwd!4321
+dotnet dev-certs https --trust
+// also tried changing docker-compose.override.yml to this, didn't get it working: 
+frontend:
+container_name: frontend
+environment:
+  - ASPNETCORE_ENVIRONMENT=Development
+  - ASPNETCORE_URLS=https://+:443;http://+:80
+  - ASPNETCORE_HTTPS_PORT=8013
+  - ASPNETCORE_Kestrel__Certificates__Default__Password=Pwd!4321
+  - ASPNETCORE_Kestrel__Certificates__Default__Path=/https/aspnetapp.pfx
+  - "ApiSettings:BaseAddress=apigateway"
+depends_on:
+  - catalog.api
+  - basket.api
+  - ordering.api
+  - apigateway
+volumes:
+  - ${APPDATA}/Microsoft/UserSecrets:/root/.microsoft/usersecrets:ro
+  - ${APPDATA}/ASP.NET/Https:/root/.aspnet/https:ro
+  - ./https/aspnetapp.pfx:/https/aspnetapp.pfx:ro
+ports:
+  - "8003:80"
+  - "8013:443"
+
+// getting some 'product pics'
 https://loremflickr.com/720/640/boat,ocean
 https://loremflickr.com/720/640/phone,pixel/all
 https://loremflickr.com/1080/720/lamborghini
