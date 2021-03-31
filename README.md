@@ -27,14 +27,16 @@ docker-compose -f docker-compose.yml -f docker-compose.override.yml up --build
 ```
 ![find-docker-files](Microservices/src/WebApp/AspnetRunBasics/wwwroot/images/open_containing_folder.png)
 
+Tip: go to that directory in Windows Explorer, click into the address bar, type "CMD" and hit Enter; this will open a CMD Prompt in the appropriate directory
+
 ![launch-cmd-prompt](Microservices/src/WebApp/AspnetRunBasics/wwwroot/images/cmd-prompt-docker-files.png)
 
-(^^^ tip: go to that directory in Windows Explorer, click into the address bar, type "CMD" and hit Enter; this will open a CMD Prompt in the appropriate directory)
+After entering command, watch the Docker build.
 
 ![docker-compose-build](Microservices/src/WebApp/AspnetRunBasics/wwwroot/images/docker-composer-build.png)
 
 
-1. Wait for docker to compose all microservices. That’s it!
+3. Wait for docker to compose all microservices. That’s it!
 
 Your containers may look like this: 
 
@@ -58,12 +60,12 @@ If all else fails, try running this in CMD prompt:
 ```csharp
 docker run -e "ACCEPT_EULA=Y" -e "SA_PASSWORD=Pwd!4321" -p 1433:1433 -d mcr.microsoft.com/mssql/server
 ```
-Logging in to SSMS may look like this: 
+Logging into SSMS may look like this: 
 
 ![sql-server-docker-login](Microservices/src/WebApp/AspnetRunBasics/wwwroot/images/sql-server-docker-login.png)
 
 
-1. Launch http://localhost:8003/ in your browser to view the Web UI. You can use Web project in order to **call microservices over API Gateway**. When you **checkout the basket** you can follow **queue record on RabbitMQ dashboard**.
+2. Launch http://localhost:8003/ in your browser to view the Web UI. You can use Web project in order to **call microservices over API Gateway**. When you **checkout the basket** you can follow **queue record on RabbitMQ dashboard**.
 
 ![mainscreen](Microservices/src/WebApp/AspnetRunBasics/wwwroot/images/frontend.png)
 
